@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Simple Formula Calculation</title>
+<style>
+#AreaOfCircle{
+
+		display:none;
+}
+#volumeOfCube{
+	display:none;
+}
+</style>
+</head>
+<body>
+<h2>Execute Formula</h2>
+
+<form method="POST" action="/executeformula">
+	<select name="formula" onChange="checkValue(this.value)">
+		<option value="">SELECT</option>
+		<option value="Area_Circle">Area of Circle</option>
+		<option value="Volume_Cube">Volume of Cube</option>
+	</select>
+
+	<div id="AreaOfCircle">
+		<p>Enter Radius: 
+		<input type="text" name="Radius_Circle" id="radius">
+		<input type="hidden" name="PI" id="PI" value="3.142">
+		<input type="submit" value="Calculate Area">
+		</p>
+	</div>
+
+	<div id="volumeOfCube">
+		<p>Enter Length: 
+		<input type="text" name="Length_Cube" id="length">
+		<input type="submit" value="Calculate Volume">
+		</p>
+	</div>
+</form>
+
+<script>
+function checkValue(sValue)
+{
+	var areaElem = document.getElementById("radius");
+	var volumeElem = document.getElementById("length");
+	var piElem = document.getElementById("PI");
+	
+	if(sValue=="Area_Circle"){
+		document.getElementById("AreaOfCircle").style.display="block";
+		document.getElementById("volumeOfCube").style.display="none";
+		volumeElem.name = "";
+		areaElem.name = "Radius_Circle";
+		piElem.name = "PI"
+	}
+	else
+	{
+		document.getElementById("volumeOfCube").style.display="block";
+		document.getElementById("AreaOfCircle").style.display="none";
+		volumeElem.name = "Length_Cube";
+		areaElem.name = "";
+		piElem.name = "";
+	}
+} 
+</script>
+</body>
+</html>

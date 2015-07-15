@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<form action="http://localhost:4000/api/photo" method="post" enctype="multipart/form-data" id="js-upload-form">
+                        <div class="form-inline">
+                          <div class="form-group">
+                            <input type="file" name="userPhoto" id="js-upload-files">
+                          </div>
+                          <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload Excel</button>
+                        </div>
+                      </form>
+<script>
+function getXcel()
+{
+
+	var fileName=document.getElementById("fileName").value;
+	console.log(fileName);
+}
+
+</script>
+</body>
+</html>
